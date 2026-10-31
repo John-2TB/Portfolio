@@ -3,6 +3,7 @@ import "@fontsource-variable/manrope";
 import "@fontsource-variable/cormorant-garamond";
 import "@fontsource-variable/jetbrains-mono";
 import '../styles/global.css';
+import { Menu } from '@lucide/astro'
 ---
 
 <html lang="en">
@@ -15,11 +16,13 @@ import '../styles/global.css';
 		<title>Koto Temiloluwa John Portfolio</title>
 	</head>
 	<body class="font-sans">
-		<header id="header" class="bg-espresso text-cream p-4 flex">
+		<header id="header" class="bg-espresso text-cream p-4 flex justify-between items-center">
 			<div class="flex-1">
-				<h1 class="text-2xl font-bold font-sans">Koto Temiloluwa John</h1>
+				<h1 class="text-2xl font-bold font-sans text-[clamp(1rem,3vw,3rem)]">Koto Temiloluwa John</h1>
 			</div>
-			<nav class="flex space-x-4 text-lg font-sans">
+
+			<Menu size={24} class="md:hidden" />
+			<nav class="flex space-x-4 text-lg font-sans max-sm:hidden">
 				<a href="/">Home</a>
 				<a href="/about">About</a>
 				<a href="/projects">Projects</a>

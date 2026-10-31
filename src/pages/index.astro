@@ -1,31 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
 ---
 
 <BaseLayout>
-	<div id="hero" class="flex items-center justify-between flex-col md:flex-row gap-8">
-		<div>
-			<h1 class="text-3xl font-bold">HELLO, I'M JOHN<span id="waving-hand" class="inline-block">
-				👋
-				</span>
-			</h1>
-			<p class="text-lg pl-4 text-espresso/60">Koto Temiloluwa John</p>
-			<p>I'm a <span id="typed-text" class="font-semibold font-mono text-caramel italic"></span></p>
-			<div class="">
-				<p class="text-5xl font-bold leading-18">
-					I build digital<br><span class="text-caramel italic">experiences.</span>
-				</p>
-			</div>
-			<div class="mt-4 flex space-x-4">
-				<button class="bg-espresso text-white px-4 py-2 rounded-3xl hover:bg-espresso/80 cursor-pointer transition-all duration-250">View Projects</button>
-				<button class="border border-espresso text-caramel px-4 py-2 rounded-3xl hover:bg-caramel hover:text-white transition-all duration-250 cursor-pointer">Contact Me</button>
-			</div>
-		</div>
-
-		<div class="mt-8">
-			<img src="/profile-pic.jpg" alt="Hero Image" class="w-full max-w-md mx-auto rounded-[50%] shadow-lg" />
-		</div>
-	</div>
+	<Hero />
+	<About />
 </BaseLayout>
 
 <script>
