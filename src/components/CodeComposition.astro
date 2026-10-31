@@ -1,0 +1,140 @@
+---
+---
+<div class="relative mx-auto w-full max-w-lg">
+
+  <!-- Decorative background -->
+  <div
+    class="absolute -inset-3 rotate-[-3deg] rounded-2xl
+           border-2 border-caramel/40"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Editor -->
+  <div
+    id="code-editor"
+    class="relative overflow-hidden rounded-2xl
+           bg-espresso p-5 text-cream shadow-2xl
+           md:p-7"
+  >
+    <!-- Window toolbar -->
+    <div class="mb-6 flex items-center justify-between">
+      <div class="flex gap-2">
+        <span class="h-3 w-3 rounded-full bg-caramel"></span>
+        <span class="h-3 w-3 rounded-full bg-cream/50"></span>
+        <span class="h-3 w-3 rounded-full bg-cream/20"></span>
+      </div>
+
+      <span class="font-mono text-xs text-cream/60">
+        about-me.ts
+      </span>
+    </div>
+
+    <!-- Code content -->
+    <div
+      class="space-y-2 font-mono text-xs leading-relaxed
+             sm:text-sm"
+    >
+      <div class="code-line">
+        <span class="text-cream/40">01</span>
+        <span class="ml-3 text-caramel">const</span>
+        
+      </div>
+
+      <div class="code-line">
+        <span class="text-cream/40">02</span>
+        <span class="ml-3">
+          name: <span class="text-caramel">"John"</span>,
+        </span>
+      </div>
+
+      <div class="code-line">
+        <span class="text-cream/40">03</span>
+        <span class="ml-3">
+          role:
+          <span class="text-caramel">"Full-Stack Developer"</span>,
+        </span>
+      </div>
+
+      <div class="code-line">
+        <span class="text-cream/40">04</span>
+        <span class="ml-3">
+          started: <span class="text-caramel">2022</span>,
+        </span>
+      </div>
+
+      <div class="code-line">
+        <span class="text-cream/40">05</span>
+        <span class="ml-3">
+          interests:
+          <span class="text-caramel">["Code", "Science"]</span>,
+        </span>
+      </div>
+
+      <div class="code-line">
+        <span class="text-cream/40">06</span>
+        <span class="ml-3">
+          mindset:
+          <span class="text-caramel">"Always learning"</span>
+        </span>
+      </div>
+
+      <div class="code-line">
+        <span class="text-cream/40">07</span>
+        <span class="ml-3"></span>
+        <span
+          class="ml-1 inline-block h-4 w-1.5
+                 animate-pulse bg-caramel align-middle"
+          aria-hidden="true"
+        ></span>
+      </div>
+    </div>
+
+    <div
+      class="mt-7 flex items-center justify-between
+             border-t border-cream/15 pt-4
+             font-mono text-[10px] text-cream/70"
+    >
+      <span>TypeScript</span>
+      <span class="text-caramel">● Open to collaboration</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const editor = document.querySelector("#code-editor");
+
+  if (editor) {
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: editor,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    timeline.from(editor, {
+      y: 70,
+      opacity: 0,
+      rotation: 3,
+      duration: 1,
+      ease: "power3.out",
+    });
+
+    timeline.from(
+      editor.querySelectorAll(".code-line"),
+      {
+        x: -25,
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.12,
+        ease: "power2.out",
+      },
+      "-=0.5"
+    );
+  }
+</script>
