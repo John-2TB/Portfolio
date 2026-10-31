@@ -1,5 +1,5 @@
 {
-  "name": "astro-type-test",
+  "name": "koto-temiloluwa-john-portfolio",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,6 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.4.4"
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.4",
+    "tailwindcss": "^4.3.3",
+    "typed.js": "^3.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "typescript": "^5.9.3"
   }
 }
