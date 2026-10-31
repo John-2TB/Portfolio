@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+  --color-cream: #F6EDE3;
+  --color-espresso: #3D2A1F;
+  --color-caramel: #C68E57;
+  --font-sans: "Manrope Variable", sans-serif;
+  --font-serif: "Cormorant Garamond Variable", serif;
+  --font-mono: "JetBrains Mono Variable", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-espresso;
+  }
+}

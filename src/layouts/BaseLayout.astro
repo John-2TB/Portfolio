@@ -1,4 +1,7 @@
 ---
+import "@fontsource-variable/manrope";
+import "@fontsource-variable/cormorant-garamond";
+import "@fontsource-variable/jetbrains-mono";
 import '../styles/global.css';
 ---
 
@@ -11,8 +14,19 @@ import '../styles/global.css';
 		<meta name="generator" content={Astro.generator} />
 		<title>Koto Temiloluwa John Portfolio</title>
 	</head>
-	<body>
-		<main>
+	<body class="font-sans">
+		<header class="bg-espresso text-cream p-4 flex">
+			<div class="flex-1">
+				<h1 class="text-2xl font-bold font-sans">Koto Temiloluwa John</h1>
+			</div>
+			<nav class="flex space-x-4 text-lg font-sans">
+				<a href="/">Home</a>
+				<a href="/about">About</a>
+				<a href="/projects">Projects</a>
+				<a href="/contact">Contact</a>
+			</nav>
+		</header>
+		<main class="p-4">
 			<slot />
 		</main>
 	</body>
