@@ -1,34 +1,82 @@
 ---
 import CodeComposition from './CodeComposition.astro';
+import DevInfo from './DevInfo.astro';
 ---
 
 <div class="border-t-2 mt-4 pt-6">
   <!-- Section header -->
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center" id="about-header">
     <p class="text-caramel font-bold text-xl"><span class="text-espresso">01/</span> ABOUT ME</p>
     <p class="text-lg">THE PERSON BEHIND THE CODE</p>
   </div>
 
   <!-- Section phrase -->
-   <div class="mt-8">
+   <div class="mt-8" id="about-phrase">
     <p class="text-3xl leading-12 font-extrabold">More than just<br><span class="text-caramel italic">lines of code.</span></p>
    </div>
 
    <!-- Section main area -->
     <div class="mt-8 flex flex-col lg:flex-row gap-8">
       <!-- Biography -->
-      <div class="space-y-2 leading-relaxed lg:grow basis-1/3">
-        <p>
-          I'm a full-stack developer who enjoys turning ideas into functional digital experiences. My journey began in 2022 with frontend development, driven by curiosity about how websites work.
-        </p>
-        <p>
-          Over time, that curiosity grew beyond interfaces. I wanted to understand what happens behind the scenes—how APIs, databases, authentication, and backend systems come together to power real applications.
-        </p>
-        <p>
-          Today, I work across the stack, combining thoughtful user experiences with reliable backend engineering. I'm constantly learning, experimenting, and finding better ways to solve problems through technology.
-        </p>
+      <div>
+        <div class="space-y-2 leading-relaxed lg:grow basis-1/3 text-lg" id="about-bio">
+          <p>
+            I'm a full-stack developer who enjoys turning ideas into functional digital experiences. My journey began in 2022 with frontend development, driven by curiosity about how websites work.
+          </p>
+          <p>
+            Over time, that curiosity grew beyond interfaces. I wanted to understand what happens behind the scenes—how APIs, databases, authentication, and backend systems come together to power real applications.
+          </p>
+          <p>
+            Today, I work across the stack, combining thoughtful user experiences with reliable backend engineering. I'm constantly learning, experimenting, and finding better ways to solve problems through technology.
+          </p>
+        </div>
+
+        <div class="mt-8 flex gap-4" id="dev-info">
+          <DevInfo mainText="2022" subText="Started coding" />
+          <DevInfo mainText="Full" subText="Stack developer" />
+          <DevInfo mainText="∞" subText="Always learning" />
+        </div>
       </div>
 
       <CodeComposition class="lg:grow basis-2/3" />
     </div>
 </div>
+
+<script>
+  import gsap from 'gsap';
+  import { SplitText } from 'gsap/SplitText';
+  gsap.registerPlugin(SplitText);
+
+  const tl = gsap.timeline();
+
+  tl.from("#about-header", {
+    y: -20,
+    opacity: 0,
+    duration: 0.5
+  });
+
+  const splitText = new SplitText('#about-phrase', { type: 'chars' });
+
+  tl.from(splitText.chars, {
+    y: 20,
+    opacity: 0,
+    stagger: 0.03,
+    duration: 0.3
+  }, "-=0.3");
+
+  const splitBio = new SplitText('#about-bio p', { type: 'lines' });
+
+  tl.from(splitBio.lines, {
+    y: 20,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 0.5
+  }, "-=0.3");
+
+  tl.from("#dev-info", {
+    y: 20,
+    opacity: 0,
+    duration: 0.5
+  }, "-=0.3");
+
+</script>
