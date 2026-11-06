@@ -15,10 +15,10 @@ import { Menu } from '@lucide/astro'
 		<meta name="generator" content={Astro.generator} />
 		<title>Koto Temiloluwa John Portfolio</title>
 	</head>
-	<body class="font-sans">
-		<header id="header" class="bg-espresso text-cream p-4 flex justify-between items-center">
+	<body class="font-sans px-4">
+		<header id="header" class="fixed z-10 w-full lg:max-w-[70%] lg:left-1/2 lg:-translate-x-1/2 bg-espresso backdrop-blur-md border border-white/20 rounded-2xl shadow-xl text-cream p-6 mt-2 mx-1 flex justify-between items-center">
 			<div class="flex-1">
-				<h1 class="text-2xl font-bold font-sans text-[clamp(1rem,3vw,3rem)]">Koto Temiloluwa John</h1>
+				<h1 class="text-2xl font-bold font-sans text-[clamp(1rem,2vw,3rem)]">Koto Temiloluwa John</h1>
 			</div>
 
 			<Menu size={24} class="md:hidden" />
@@ -29,8 +29,27 @@ import { Menu } from '@lucide/astro'
 				<a href="/contact">Contact</a>
 			</nav>
 		</header>
-		<main class="p-4">
+		<main class="py-22">
 			<slot />
 		</main>
 	</body>
+
+	<script>
+		import gsap from 'gsap';
+		import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+		gsap.registerPlugin(ScrollTrigger);
+
+		gsap.fromTo("#header",
+			{
+				y: -10,
+			}, {
+				y: 15,
+				ease: "linear",
+				yoyo: true,
+				repeat: 3,
+				duration: 1.75
+			}
+		);
+</script>
 </html>
